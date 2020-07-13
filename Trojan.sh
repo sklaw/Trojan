@@ -155,8 +155,8 @@ EOF
 	#申请https证书
 	mkdir /usr/src/trojan-cert
 	curl https://get.acme.sh | sh
-	~/.acme.sh/acme.sh  --issue  -d $your_domain  --webroot /usr/share/nginx/html/
-    	~/.acme.sh/acme.sh  --installcert  -d  $your_domain   \
+	~/.acme.sh/acme.sh  --force --issue  -d $your_domain  --webroot /usr/share/nginx/html/
+    	~/.acme.sh/acme.sh  --force --installcert  -d  $your_domain   \
         --key-file   /usr/src/trojan-cert/private.key \
         --fullchain-file /usr/src/trojan-cert/fullchain.cer \
         --reloadcmd  "systemctl force-reload  nginx.service"
